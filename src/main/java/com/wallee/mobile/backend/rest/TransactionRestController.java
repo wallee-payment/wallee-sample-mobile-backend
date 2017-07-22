@@ -1,11 +1,11 @@
-package com.wallee.mobile.backend;
+package com.wallee.mobile.backend.rest;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/transaction")
-public class TransactionController {
+public class TransactionRestController {
 
 	@RequestMapping("/create")
 	public String create() {

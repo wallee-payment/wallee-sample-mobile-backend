@@ -44,8 +44,8 @@ gcloud init
 ### Configure API Credentials  
 
 The application user ID and the shared secret we put into a meta store. We use 
-- `WalleeApiUserId` for the application user ID and 
-- `WalleeApiKey` for the API key.
+- `WalleeApplicationUserId` for the application user ID and 
+- `WalleeApplicationUserKey` for the API key.
 
 You can specify both configurations within the meta store configuration:
 https://console.cloud.google.com/compute/metadata

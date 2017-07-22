@@ -28,7 +28,8 @@ targetCompatibility = 1.8
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
-    compile 'com.google.appengine:appengine:1.9.54'
+    compile 'com.google.appengine:appengine-endpoints:1.9.54'
+    compile 'com.google.guava:guava:22.0'
     
     // tag::actuator[]
     compile("org.springframework.boot:spring-boot-starter-actuator")
