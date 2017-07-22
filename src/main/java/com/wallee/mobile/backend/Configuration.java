@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Properties;
 
+import javax.net.ssl.HttpsURLConnection;
+
 import com.google.appengine.api.utils.SystemProperty;
 import com.google.common.io.CharStreams;
 
@@ -75,7 +77,9 @@ public final class Configuration {
 	private static String readAppEngineMetaKey(String keyName) {
 		try {
 			URL url = new URL("http://metadata.google.internal/computeMetadata/v1/project/attributes/" + keyName);
-			try (InputStream input = url.openStream()) {
+			HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+			connection.setRequestProperty("Metadata-Flavor", "Google");
+			try (InputStream input = connection.getInputStream()) {
 				return CharStreams.toString(new InputStreamReader(input, "UTF-8"));
 			}
 		} catch (IOException e) {

@@ -30,6 +30,11 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile 'com.google.appengine:appengine-endpoints:1.9.54'
     compile 'com.google.guava:guava:22.0'
+    compile 'io.swagger:swagger-annotations:1.5.8'
+    compile 'com.squareup.okhttp:okhttp:2.7.5'
+    compile 'com.squareup.okhttp:logging-interceptor:2.7.5'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'joda-time:joda-time:2.9.3'
     
     // tag::actuator[]
     compile("org.springframework.boot:spring-boot-starter-actuator")
@@ -41,4 +46,14 @@ dependencies {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '2.12'
+}
+
+sourceSets {
+	main {
+		java.srcDir 'src/imported/java'
+		resources {
+            srcDirs = ['src/imported/resources', 'src/main/resources']
+        }
+	}
+
 }
